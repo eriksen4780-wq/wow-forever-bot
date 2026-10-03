@@ -1,6 +1,17 @@
 import "dotenv/config";
 import { Client, GatewayIntentBits, SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } from "discord.js";
 import fs from "fs";
+import http from "http";
+
+// Render Web Service health port. The Discord bot itself does not need HTTP,
+// but Render Web Services require a listening port.
+const PORT = process.env.PORT || 10000;
+http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("WoW Forever Discord Bot is online.");
+}).listen(PORT, "0.0.0.0", () => {
+  console.log(`Health server listening on port ${PORT}`);
+});
 
 const TOKEN = process.env.DISCORD_TOKEN;
 const CLIENT_ID = process.env.DISCORD_CLIENT_ID;
