@@ -22,7 +22,7 @@ let data = loadData();
 const saveData = () => fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
 
 const client = new Client({
-  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers]
+  intents: [GatewayIntentBits.Guilds]
 });
 
 const commands = [
