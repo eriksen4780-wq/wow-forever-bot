@@ -197,10 +197,21 @@ setInterval(async () => {
   for (const c of Object.values(data.challenges)) {
     if (!c.active || c.endsAt > Date.now()) continue;
     try {
-      const guild = await client.guilds.fetch(c.guildId);
+      const guild = client.guilds.cache.get(c.guildId);
+
+      if (!guild) {
+        console.warn(`Skipping challenge ${c.id}: guild ${c.guildId} is no longer available to this bot.`);
+        c.active = false;
+        c.finishedAt = Date.now();
+        saveData();
+        continue;
+      }
+
       const channel = guild.channels.cache.find(ch => ch.isTextBased() && ch.name.toLowerCase().includes("ugens-udfordring"));
       await finish(c, guild, channel);
-    } catch (e) { console.error(`Could not finish challenge ${c.id}:`, e); }
+    } catch (e) {
+      console.error(`Could not finish challenge ${c.id}:`, e.message);
+    }
   }
 }, 60000);
 
