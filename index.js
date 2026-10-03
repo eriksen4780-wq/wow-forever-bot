@@ -228,8 +228,9 @@ setInterval(async () => {
 
 (async () => {
   try {
-    await client.application?.commands.set(commands);
     await client.login(TOKEN);
+    await client.application.commands.set(commands);
+    console.log("Slash commands registered successfully.");
   } catch (e) {
     console.error("Bot startup failed:", e);
     process.exit(1);
