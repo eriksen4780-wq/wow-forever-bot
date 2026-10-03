@@ -1,0 +1,21 @@
+{
+  "challenges": {
+    "1791034262893": {
+      "id": "1791034262893",
+      "guildId": "1555909660123594772",
+      "active": true,
+      "name": "⚔️ Launch Day Challenge",
+      "description": "Hvem kan få flest killing blows på Launch Day?",
+      "endsAt": "2026-10-04T13:31:02.893Z",
+      "entries": {
+        "636966573860585498": {
+          "userId": "636966573860585498",
+          "username": "Fearcycle",
+          "score": 0,
+          "proof": "",
+          "updatedAt": "2026-10-03T13:32:16.632Z"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "wow4780-challenge-bot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.21.0",
+    "dotenv": "^18.0.5"
+  }
+}
